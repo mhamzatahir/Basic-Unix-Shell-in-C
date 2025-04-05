@@ -14,4 +14,7 @@ A minimal shell implementation in C that reads user commands and executes them.
 
 1. Compile the program:
    ```bash
-   gcc -o mysh mysh.c
+   gcc shell.c -o shell
+
+2. To run the program:
+  ./shell
