@@ -16,10 +16,10 @@ void shell() // Function that runs the shell
             printf("Nothing entered.\n"); // If nothing was entered, break the loop
             break;
         }
-        if (strcmp(buffer, "exit") == 0) exit(0);
+        
 
         buffer[strcspn(buffer, "\n")] = '\0'; // Remove the newline character from the input
-
+        if (strcmp(buffer, "exit") == 0) exit(0);
         pid_t pid = fork(); // Create a child process using fork()
         if (pid < 0)        // If fork fails
         {
