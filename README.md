@@ -17,4 +17,5 @@ A minimal shell implementation in C that reads user commands and executes them.
    gcc shell.c -o shell
 
 2. To run the program:
-  ./shell
+   ```bash
+   ./shell
