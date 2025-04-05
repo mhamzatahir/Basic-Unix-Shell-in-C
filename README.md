@@ -1,4 +1,4 @@
-# A very Simple Shell 
+# A simple Unix Shell 
 
 A minimal shell implementation in C that reads user commands and executes them.
 
