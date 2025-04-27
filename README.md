@@ -1,14 +1,23 @@
 # A simple Unix Shell 
 
-A minimal shell implementation in C that reads user commands and executes them.
+A minimal yet functional Unix shell implementation that supports basic command execution with arguments.
 
 ## Features
 
-- Basic shell prompt (`mysh>`)
+- Interactive shell prompt (`mysh>`)
 - Reads and executes user commands
 - basic commands like ls, pwd, ps, top etc
-- Handles 'command not found' errors
-- Built-in exit handling (via Ctrl+D or empty input)
+- Supports commands with arguments (e.g., `ls -l`, `grep pattern file.txt`, `mv file.txt document.txt`)
+- Built-in exit handling (via Ctrl+D)
+- Proper process forking and waiting
+
+## How It Works
+
+1. Reads user input from stdin
+2. Tokenizes input into command and arguments
+3. Forks a child process to execute the command
+4. Parent process waits for child completion
+5. Handles errors during forking and execution
 
 ## Usage
 
