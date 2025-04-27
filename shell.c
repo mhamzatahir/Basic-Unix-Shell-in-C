@@ -12,6 +12,7 @@ void shell() // Function that runs the shell
     char buffer[BUFFER_SIZE]; // Create a buffer to hold the input command
     char *history[HIST_LIMIT];
     int hist_counter = 0;
+
     while (1) // Infinite loop to keep the shell running
     {
         printf("mysh> "); // Display the prompt
@@ -56,11 +57,12 @@ void shell() // Function that runs the shell
             }
             continue;
         }
+
         char *args[ARGS_LIMIT];
         int i = 0;
         char *token = strtok(buffer, " ");
-        // tokenize inputs into commands and arguements
-        while (token != NULL && i < ARGS_LIMIT - 1)
+        
+        while (token != NULL && i < ARGS_LIMIT - 1) // tokenize inputs into commands and arguements
         {
             args[i] = token;
             token = strtok(NULL, " ");
@@ -69,6 +71,7 @@ void shell() // Function that runs the shell
         args[i] = NULL;
 
         pid_t pid = fork(); // Create a child process using fork()
+
         if (pid < 0)        // If fork fails
         {
             fprintf(stderr, "Fork failed\n");
@@ -86,8 +89,12 @@ void shell() // Function that runs the shell
             waitpid(pid, &status, 0); // Wait for the child process to finish
         }
     }
-}
 
+    for(int i=0; i<hist_counter; i++)
+    {
+        free(history[i]);
+    }
+}
 int main()
 {
     shell(); // Call the shell function to start the shell
