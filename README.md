@@ -6,7 +6,7 @@ A minimal yet functional Unix shell implementation that supports basic command e
 
 - Interactive shell prompt (`mysh>`)
 - Reads and executes user commands
-- basic commands like ls, pwd, ps, top etc
+- basic commands like ls, history, pwd, ps, top etc
 - Supports commands with arguments (e.g., `ls -l`, `grep pattern file.txt`, `mv file.txt document.txt`)
 - Built-in exit handling (via Ctrl+D)
 - Proper process forking and waiting
