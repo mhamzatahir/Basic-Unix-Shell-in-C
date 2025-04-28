@@ -1,16 +1,50 @@
 # A simple Unix Shell 
 
-A minimal yet functional Unix shell implementation that supports basic command execution with arguments.
+A minimal yet functional Unix shell implementation that supports **command execution, built-ins, and argument handling**.
 
 ## Features
 
-- Interactive shell prompt (`mysh>`)
-- Reads and executes user commands
-- basic commands like ls, history, pwd, ps, top etc
-- Supports commands with arguments (e.g., `ls -l`, `grep pattern file.txt`, `mv file.txt document.txt`)
-- Built-in exit handling (via Ctrl+D)
-- Proper process forking and waiting
+✅ **Command Execution**
+- Runs External programs (`ls`, `grep`, `pwd`, `ps`, `top`, etc.) with arguments
+- Example:
+  
+  ```bash
+  mysh> ls -l
+  mysh> top
+  mysh> grep "pattern" doc.txt
 
+✅ **Built-in Commands**
+- cd
+- history
+- exit
+- Example:
+
+  ```bash
+  mysh> cd /
+  mysh> pwd
+  /
+  mysh> history
+  1:  cd /
+  2:  pwd
+  3:  history
+  mysh> exit
+  Exiting...
+
+✅ **Process Handling**
+- Proper `fork()` + `execvp()` flow
+- The parent waits for the child process
+
+✅ **Error Handling**
+- Reports failed commands
+- cd displays error in the absence of the directory
+- Example:
+
+  ```bash
+  mysh> wasd
+  Command 'wasd' not available.
+  mysh> cd folder
+  cd: No such file or directory
+  
 ## How It Works
 
 1. Reads user input from stdin
